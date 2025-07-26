@@ -1,0 +1,16 @@
+.form-control {
+    margin: 1rem 0;
+}
+
+.form-control input {
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
+}
+
+.form-control input:focus {
+    outline-color: #00695c;
+}
+.form-control button{
+    margin-left: 0.25rem;
+    padding: 0.25rem;
+}

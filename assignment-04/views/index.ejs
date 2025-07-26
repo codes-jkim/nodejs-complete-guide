@@ -1,0 +1,19 @@
+<%- include('includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('includes/nav.ejs') %>
+            <main class="main-content">
+                <% if (users.length> 0) { %>
+                    <ul class="user-list">
+                        <% users.forEach((user, index) => { %>
+                            <li class="user-item"><%= index + 1 %>. <%= user %></li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <h1>No users Found</h1>
+                <% } %>
+            </main>
+    </body>
+
+    </html>

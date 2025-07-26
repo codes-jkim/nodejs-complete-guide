@@ -1,0 +1,12 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/users.css")
+
+block content
+    main.main-content
+        .form-control
+            form(action="/users", method="post")
+                input(type="text", name="user", placeholder="Enter username", required)
+                button(type="submit") Add User
