@@ -8,6 +8,6 @@ block content
         if users.length > 0
             ul.user-list
                 each user in users
-                    li.user-item= user
+                    li.user-item= user.name
         else
             h1 No users

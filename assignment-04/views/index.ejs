@@ -7,7 +7,7 @@
                 <% if (users.length> 0) { %>
                     <ul class="user-list">
                         <% users.forEach((user, index) => { %>
-                            <li class="user-item"><%= index + 1 %>. <%= user %></li>
+                            <li class="user-item"><%= index + 1 %>. <%= user.name %></li>
                         <% }); %>
                     </ul>
                 <% } else { %>
