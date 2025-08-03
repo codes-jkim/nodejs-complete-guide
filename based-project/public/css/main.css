@@ -197,6 +197,11 @@ form {
   color: white;
 }
 
+.btn.danger {
+  border-color: #d32f2f;
+  color: #d32f2f;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;

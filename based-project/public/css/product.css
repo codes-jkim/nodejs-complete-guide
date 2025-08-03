@@ -16,8 +16,12 @@
     text-align: center;
 }
 
+.product__image {
+    height: 20rem;
+}
+
 .product__image img {
-    max-width: 50%;
+    height: 100%;
 }
 
 .product__price {

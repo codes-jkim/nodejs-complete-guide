@@ -3,7 +3,24 @@
 
     <body>
         <%- include('../includes/navigation.ejs') %>
-        <main>
-            <h1>Nothing there!</h1>
-        </main>
-        <%- include('../includes/end.ejs') %>
+            <main>
+                <% if(orders.length> 0) { %>
+                    <ul class="order__list">
+                        <% orders.forEach(order => { %>
+                            <li class="order__item">
+                                <h1># <%= order.id %></h1>
+                                <ul>
+                                    <% order.products.forEach(product => { %>
+                                        <li>
+                                            <p><%= product.title %> (<%= product.orderItem.quantity %>)</p>
+                                        </li>
+                                   <% }) %>
+                                </ul>
+                            </li>
+                        <% }); %>
+                    </ul>
+                    <% } else { %>
+                        <h1>No Orders Found!</h1>
+                    <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>
