@@ -1,26 +1,29 @@
 <%- include('../includes/head.ejs') %>
-    </head>
+  </head>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
-            <main>
-                <% if(orders.length> 0) { %>
-                    <ul class="order__list">
-                        <% orders.forEach(order => { %>
-                            <li class="order__item">
-                                <h1>Order #<%= order._id %></h1>
-                                <ul>
-                                    <% order.items.forEach(product => { %>
-                                        <li>
-                                            <p><%= product.title %> (<%= product.quantity %>)</p>
-                                        </li>
-                                   <% }) %>
-                                </ul>
-                            </li>
-                        <% }); %>
-                    </ul>
-                    <% } else { %>
-                        <h1>No Orders Found!</h1>
-                    <% } %>
-            </main>
-            <%- include('../includes/end.ejs') %>
+  <body>
+    <%- include('../includes/navigation.ejs') %>
+      <main>
+        <% if(orders.length> 0) { %>
+          <ul class="order__list">
+            <% orders.forEach(order=> { %>
+              <li class="order__item">
+                <h1>Order #<%= order._id %>
+                </h1>
+                <ul>
+                  <% order.products.forEach(p=> { %>
+                    <li>
+                      <p>
+                        <%= p.product.title %> (<%= p.quantity %>)
+                      </p>
+                    </li>
+                    <% }) %>
+                </ul>
+              </li>
+              <% }); %>
+          </ul>
+          <% } else { %>
+            <h1>No Orders Found!</h1>
+            <% } %>
+      </main>
+      <%- include('../includes/end.ejs') %>
