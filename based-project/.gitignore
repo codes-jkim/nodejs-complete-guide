@@ -1,2 +1,2 @@
-node_modules
-util/mongodb-uri.js
+/node_modules
+.env

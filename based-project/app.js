@@ -8,7 +8,10 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csfr = require('csurf');
 const flash = require('connect-flash');
 
-const { MONGODB_URI } = require('./util/mongodb-uri');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI;  
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
