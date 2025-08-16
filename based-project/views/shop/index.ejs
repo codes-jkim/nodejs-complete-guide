@@ -31,10 +31,11 @@
                   </div>
                 <% } %>
               </article>
-              <% } %>
-          </div>
-          <% } else { %>
-            <h1>No Products Found!</h1>
             <% } %>
+          </div>
+          <%- include('../includes/pagination.ejs', { currentPage: currentPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage }) %>
+        <% } else { %>
+          <h1>No Products Found!</h1>
+        <% } %>
       </main>
       <%- include('../includes/end.ejs') %>

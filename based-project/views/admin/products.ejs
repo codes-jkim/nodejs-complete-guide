@@ -33,11 +33,11 @@
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <button class="btn" type="submit">Delete</button>
                   </form>
-
                 </div>
               </article>
               <% } %>
           </div>
+          <%- include('../includes/pagination.ejs', { currentPage: currentPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage }) %>
           <% } else { %>
             <h1>No Products Found!</h1>
             <% } %>
