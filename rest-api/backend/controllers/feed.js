@@ -182,7 +182,6 @@ exports.deletePost = (req, res, next) => {
       return User.findById(req.userId)
     })
     .then(user => {
-      console.log("user", user);
       user.posts.pull(postId);
       return user.save();
     })

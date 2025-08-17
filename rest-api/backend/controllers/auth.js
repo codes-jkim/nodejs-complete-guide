@@ -76,3 +76,53 @@ exports.login = (req, res, next) => {
       next(err);
     });
 }
+
+exports.getUserStatus = (req, res, next) => {
+  const userId = req.userId;
+  User.findById(userId)
+    .then(user => {
+      if (!user) {
+        const error = new Error('User not found.');
+        error.statusCode = 404;
+        throw error;
+      }
+      res.status(200).json({ status: user.status });
+    })
+    .catch(err => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
+}
+
+exports.updateUserStatus = (req, res, next) => {
+  const errors = expValidator.validationResult(req);
+  if (!errors.isEmpty()) {
+    const error = new Error('Validation failed, entered data is incorrect.');
+    error.statusCode = 422;
+    error.data = errors.array();
+    throw error;
+  }
+  const newStatus = req.body.status;
+
+  User.findById(req.userId)
+    .then(user => {
+      if (!user) {
+        const error = new Error('User not found.');
+        error.statusCode = 404;
+        throw error;
+      }
+      user.status = newStatus;
+      return user.save();
+    })
+    .then(result => {
+      res.status(200).json({ message: 'User status updated!', status: result.status });
+    })
+    .catch(err => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    })
+}
