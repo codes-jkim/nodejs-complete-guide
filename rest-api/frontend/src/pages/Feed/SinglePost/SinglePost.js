@@ -21,12 +21,6 @@ class SinglePost extends Component {
     })
       .then(res => {
         if (res.status !== 200) {
-          throw new Error('Failed to fetch post.');
-        }
-        return res.json();
-      })
-      .then(res => {
-        if (res.status !== 200) {
           throw new Error('Failed to fetch status');
         }
         return res.json();
