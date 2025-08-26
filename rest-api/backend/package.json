@@ -4,9 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon app.js"
+        "start": "nodemon app.js",
+        "test": "mocha --require dotenv/config --timeout 5000"
     },
-    "keywords": [],
+    "keywords": [], 
     "author": "",
     "license": "ISC",
     "dependencies": {
@@ -24,6 +25,9 @@
         "validator": "^13.15.15"
     },
     "devDependencies": {
-        "nodemon": "^3.1.0"
+        "chai": "^6.0.1",
+        "mocha": "^11.7.1",
+        "nodemon": "^3.1.0",
+        "sinon": "^21.0.0"
     }
 }

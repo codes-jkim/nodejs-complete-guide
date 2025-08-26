@@ -4,20 +4,25 @@ module.exports = (req, res, next) => {
   const authHeader = req.get('Authorization');
   if (!authHeader) {
     req.isAuth = false
-    return next();
+    const error = new Error('Not authenticated.');
+    error.code = 401; // unauthorized 
+    throw error;
   }
   const token = req.get('Authorization').split(' ')[1];
   let decodedToken;
   try {
     decodedToken = jwt.verify(token, process.env.JWT_SECRET);
   } catch (err) {
-    req.isAuth = false
-    return next();
+    req.isAuth = false;
+    err.statusCode = 500;
+    throw err;
   }
 
-  if(!decodedToken){
+  if (!decodedToken) {
     req.isAuth = false
-    return next();
+    const error = new Error('Not authenticated.');
+    error.code = 401; // unauthorized 
+    throw error;
   }
 
   req.userId = decodedToken.userId;
